@@ -16,6 +16,9 @@ export default async function handler(request, response) {
 
   try {
     const currentCount = await redisClient.get(counterID);
+    if (currentCount === undefined || currentCount === null) {
+      throw "Counter does not exist";
+    }
     handleSuccessResponse(response, "Count retrieved", { currentCount });
   } catch (err) {
     handleErrorResponse(response, err);
