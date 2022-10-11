@@ -5,16 +5,12 @@ import {
 } from "../util/server-helpers";
 
 export default async function handler(request, response) {
-  if (!request.query.id) {
-    response.status(400).json({
-      status: "Error",
-      message: "Invalid ID",
-    });
-    return;
-  }
-
   const counterID = request.query.id;
 
+  if (!counterID) {
+    handleErrorResponse(response, "Invalid ID");
+    return;
+  }
   const redisClient = await createRedisClient();
 
   try {

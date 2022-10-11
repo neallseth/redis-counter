@@ -1,7 +1,7 @@
-export function handleErrorResponse(response, err) {
+export function handleErrorResponse(response, message) {
   response.status(400).json({
     status: "Error",
-    message: err,
+    message,
   });
   return;
 }

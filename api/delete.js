@@ -5,7 +5,9 @@ import {
 } from "../util/server-helpers";
 
 export default async function handler(request, response) {
-  if (!request.query.id) {
+  const counterID = request.query.id;
+
+  if (!counterID) {
     response.status(400).json({
       status: "Error",
       message: "Invalid ID",
@@ -13,12 +15,9 @@ export default async function handler(request, response) {
     return;
   }
 
-  const counterID = request.query.id;
-
   try {
     const redisClient = await createRedisClient();
     await redisClient.del(counterID);
-
     handleSuccessResponse(response, "Counter deleted", { counterID });
   } catch (err) {
     handleErrorResponse(response, err);
