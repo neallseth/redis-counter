@@ -1,5 +1,5 @@
 # redis-counter
-Redis-backed counter service.  Designed for deployment via Vercel Functions
+Redis-backed counter service, designed for deployment via Vercel Functions.
 
 ## Endpoints
 Counter service can be operated via REST interface – its endpoints are listed below:
