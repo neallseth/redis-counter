@@ -19,5 +19,10 @@ Counter service can be operated via REST interface – its endpoints are listed 
 #### Delete counter
 ``/api/delete?id=123`` deletes the counter corresponding to ``id``.
 
+## Set up
+To run the service locally, create a new ``.env`` file in the project's root directory, and [set](https://www.freecodecamp.org/news/how-to-use-node-environment-variables-with-a-dotenv-file-for-node-js-and-npm/) the following values based on your Redis configuration:
+1. ``REDIS_PASS``
+2. ``REDIS_URL``
+3. ``REDIS_PORT``
 
-
+See [redis-helpers.js](https://github.com/neallseth/redis-counter/blob/2ce2d735e90f84fd717e063f4f870b3c067d38f7/util/redis-helpers.js) to learn how the connection is made.
