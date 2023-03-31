@@ -1,13 +1,12 @@
-import { createRedisClient } from "../util/redis-helpers";
+import { createRedisClient } from "../util/redis-helpers.js";
 import {
   handleErrorResponse,
   handleSuccessResponse,
-} from "../util/server-helpers";
+} from "../util/server-helpers.js";
+import { nanoid } from "nanoid";
 
 export default async function handler(request, response) {
-  const cleanedIP = request.socket.remoteAddress.replaceAll(".", "");
-  const randomNum = Math.floor(Math.random() * 100);
-  const newCounterID = `${randomNum}${cleanedIP}${Date.now()}`;
+  const newCounterID = nanoid();
 
   const expiration = request.query.expiry;
 

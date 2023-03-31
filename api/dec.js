@@ -1,8 +1,8 @@
-import { createRedisClient } from "../util/redis-helpers";
+import { createRedisClient } from "../util/redis-helpers.js";
 import {
   handleErrorResponse,
   handleSuccessResponse,
-} from "../util/server-helpers";
+} from "../util/server-helpers.js";
 
 export default async function handler(request, response) {
   const counterID = request.query.id;
